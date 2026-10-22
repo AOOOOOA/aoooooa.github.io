@@ -28,6 +28,9 @@
     .profile-links li{display:flex;align-items:center;gap:11px;margin:1px 0}
     .link-icon{font-size:14px;color:#7b8792;width:17px;flex:none;text-align:center;font-weight:640;font-style:normal}
     .profile-links a{white-space:nowrap}
+    .profile-location{color:var(--ink)}
+    .profile-location .link-icon{display:flex;align-items:center;justify-content:center}
+    .profile-location svg{display:block}
     main{min-width:0}
     .toc{display:flex;gap:7px 23px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding:2px 0 14px;margin:0 0 26px;font-size:13.5px}
     .toc a{color:#56616d}
@@ -77,8 +80,10 @@
       .identity{grid-column:2;font-size:12px;margin:6px 0 0}
       .sidebar h2{grid-column:1/-1;margin:14px 0 3px}
       .focus{grid-column:1/-1;display:flex;flex-wrap:wrap;column-gap:14px;row-gap:0;font-size:12.8px}
-      .profile-links{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 9px;margin:12px 0 0;font-size:12.9px}
+      .sidebar>nav{grid-column:1/-1}
+      .profile-links{display:grid;grid-template-columns:1fr 1fr;gap:0 9px;margin:12px 0 0;font-size:12.9px}
       .profile-links li{gap:7px}
+      .profile-location{grid-column:1/-1}
       .toc{gap:5px 13px;margin:0 0 22px}
       section{margin-bottom:30px}
       h2.section-title{font-size:20px}
@@ -102,6 +107,7 @@
    <li>System Testing &amp; Reliability Validation</li>
   </ul>
   <nav aria-label="Personal links"><ul class="profile-links">
+   <li class="profile-location"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13"><path fill="currentColor" d="M8 1.15a4.35 4.35 0 0 0-4.35 4.35c0 3.25 4.35 9.35 4.35 9.35s4.35-6.1 4.35-9.35A4.35 4.35 0 0 0 8 1.15zm0 5.9a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1z"/></svg></span><span>Hong Kong, China</span></li>
    <li><span class="link-icon" aria-hidden="true">✉</span><a href="mailto:weiweifu2-c@my.cityu.edu.hk">Email</a></li>
    <li><span class="link-icon" aria-hidden="true">⌘</span><a href="https://github.com/AOOOOOA" target="_blank" rel="noopener noreferrer">GitHub</a></li>
    <li><span class="link-icon" aria-hidden="true">▦</span><a href="https://scholars.cityu.edu.hk/en/persons/weiweifu2/" target="_blank" rel="noopener noreferrer">CityUHK Scholars</a></li>
