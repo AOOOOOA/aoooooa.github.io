@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Weiwei Fu — Bug Hunter. Research in AI agent security, fuzzing, and system testing &amp; reliability validation at City University of Hong Kong.">
+<title>Weiwei Fu · Bug Hunter</title>
+<style>
+    :root { --ink:#29323a; --muted:#626b75; --accent:#20619f; --rule:#e4e9ed; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font:15.5px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .page{max-width:1100px;margin:0 auto;padding:54px 36px 70px;display:grid;grid-template-columns:230px minmax(0,1fr);gap:72px;align-items:start}
+    .sidebar{position:sticky;top:30px}
+    .portrait{display:block;width:216px;height:255px;max-width:100%;object-fit:cover;object-position:center 30%;border-radius:3px;background:#edf1f5}
+    .name{font-size:27px;line-height:1.2;margin:18px 0 1px;font-weight:750;letter-spacing:-.4px}
+    .name-cn{color:var(--muted);font-size:14px;margin:0}
+    .motto{font-size:18px;line-height:1.4;font-weight:700;color:var(--accent);margin:8px 0 3px}
+    .identity{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 18px}
+    .identity strong{color:var(--ink)}
+    .sidebar h2{font-size:12.5px;letter-spacing:.055em;text-transform:uppercase;margin:20px 0 7px;font-weight:720}
+    .focus{list-style:none;padding:0;margin:0;color:var(--ink);font-size:13.5px;line-height:1.8}
+    .focus li{margin:0 0 2px}
+    .profile-links{list-style:none;margin:18px 0 0;padding:0;font-size:13.9px;line-height:1.9}
+    .profile-links li{display:flex;align-items:center;gap:11px;margin:1px 0}
+    .link-icon{font-size:14px;color:#7b8792;width:17px;flex:none;text-align:center;font-weight:640;font-style:normal}
+    .profile-links a{white-space:nowrap}
+    main{min-width:0}
+    .toc{display:flex;gap:7px 23px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding:2px 0 14px;margin:0 0 26px;font-size:13.5px}
+    .toc a{color:#56616d}
+    section{margin:0 0 38px;scroll-margin-top:25px}
+    h2.section-title{font-size:21px;line-height:1.4;font-weight:730;border-bottom:1px solid var(--rule);padding-bottom:8px;margin:0 0 15px}
+    p{margin:0 0 13px}
+    .bio{font-size:15.6px;line-height:1.85}
+    .timeline{list-style:none;margin:0;padding:0}
+    .timeline>li{display:grid;grid-template-columns:minmax(0,1fr) 132px;gap:12px;margin:0 0 16px}
+    .entry-heading{font-weight:640;line-height:1.5}
+    .entry-detail{font-size:14px;color:var(--muted)}
+    .entry-date{font-size:13.5px;color:var(--muted);text-align:right;white-space:nowrap;padding-top:1px}
+    .publication-list{margin:0;padding:0 0 0 21px}
+    .publication{padding-left:4px;margin:0 0 18px}
+    .publication-title{font-weight:650;line-height:1.5}
+    .publication-title a{color:var(--ink)}
+    .publication-title a:hover{color:var(--accent)}
+    .publication-authors{font-size:14px;line-height:1.6;color:var(--muted);margin-top:2px}
+    .publication-authors strong{color:var(--ink)}
+    .publication-venue{font-size:13.5px;font-style:italic;color:var(--muted);line-height:1.55}
+    .ccf-tag{font-weight:650;font-style:normal;color:var(--ink);white-space:nowrap}
+    .pub-extra{font-style:normal;margin-left:7px}
+    .subhead{font-size:15px;font-weight:700;margin:16px 0 10px}
+    .muted{color:var(--muted)}
+    .teaching-intro{font-size:14.5px;color:var(--muted);margin-bottom:7px}
+    .teaching-list{list-style:none;margin:0;padding:0}
+    .teaching-list li{margin:0 0 8px;padding-left:18px;position:relative;line-height:1.55}
+    .teaching-list li::before{content:'•';position:absolute;left:2px;color:#79838d}
+    .course{font-weight:620}
+    .terms{color:var(--muted);font-size:14px}
+    .patent-list{padding-left:20px;margin:0;font-size:14.5px}
+    .patent-list li{margin-bottom:9px}
+    footer{border-top:1px solid var(--rule);padding-top:15px;margin-top:43px;color:#858e98;font-size:12px}
+    @media(max-width:820px){
+      .page{grid-template-columns:196px minmax(0,1fr);gap:35px;padding:32px 24px 55px}
+      .portrait{width:190px;height:226px}
+      .timeline>li{grid-template-columns:1fr;gap:2px}
+      .entry-date{grid-row:1;text-align:left}
+    }
+    @media(max-width:630px){
+      .page{display:block;padding:23px 20px 42px}
+      .sidebar{position:static;display:grid;grid-template-columns:126px minmax(0,1fr);column-gap:16px;margin:0 0 28px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+      .portrait{grid-column:1;grid-row:1 / span 5;width:126px;height:155px}
+      .name{grid-column:2;margin:0;font-size:24px}
+      .name-cn{grid-column:2}
+      .motto{grid-column:2;font-size:16px;margin:3px 0 0}
+      .identity{grid-column:2;font-size:12px;margin:6px 0 0}
+      .sidebar h2{grid-column:1/-1;margin:14px 0 3px}
+      .focus{grid-column:1/-1;display:flex;flex-wrap:wrap;column-gap:14px;row-gap:0;font-size:12.8px}
+      .profile-links{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0 9px;margin:12px 0 0;font-size:12.9px}
+      .profile-links li{gap:7px}
+      .toc{gap:5px 13px;margin:0 0 22px}
+      section{margin-bottom:30px}
+      h2.section-title{font-size:20px}
+      .teaching-list li{margin-bottom:10px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+ <aside class="sidebar" aria-label="Weiwei Fu profile">
+  <img class="portrait" src="assets/profile.jpg" alt="Weiwei Fu standing by the sea" width="216" height="255">
+  <h1 class="name">Weiwei Fu</h1>
+  <p class="name-cn">付巍巍</p>
+  <p class="motto">Bug Hunter</p>
+  <p class="identity"><strong>Ph.D. Candidate</strong><br>Computer Science<br>City University of Hong Kong</p>
+  <h2>Research Focus</h2>
+  <ul class="focus">
+   <li>AI Agent Security</li>
+   <li>Fuzzing</li>
+   <li>System Testing &amp; Reliability Validation</li>
+  </ul>
+  <nav aria-label="Personal links"><ul class="profile-links">
+   <li><span class="link-icon" aria-hidden="true">✉</span><a href="mailto:weiweifu2-c@my.cityu.edu.hk">Email</a></li>
+   <li><span class="link-icon" aria-hidden="true">⌘</span><a href="https://github.com/AOOOOOA" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+   <li><span class="link-icon" aria-hidden="true">▦</span><a href="https://scholars.cityu.edu.hk/en/persons/weiweifu2/" target="_blank" rel="noopener noreferrer">CityUHK Scholars</a></li>
+   <li><span class="link-icon" aria-hidden="true">in</span><a href="https://www.linkedin.com/in/weiwei-fu-101357170/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+  </ul></nav>
+ </aside>
+ <main>
+  <nav class="toc" aria-label="Page sections">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching Service</a>
+    <a href="#patents">Patents</a>
+  </nav>
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="bio">I am a Ph.D. candidate in Computer Science at <a href="https://www.cityu.edu.hk/" target="_blank" rel="noopener noreferrer">City University of Hong Kong</a>, advised by Prof. <a href="https://www.cs.cityu.edu.hk/~jianwang/" target="_blank" rel="noopener noreferrer">Jianping Wang</a>.</p>
+    <p class="bio">My research focuses on AI agent security, fuzzing, and systematic testing and reliability validation of complex software systems. I am especially interested in uncovering subtle software bugs and exploring how fuzzing techniques can help discover vulnerabilities in emerging AI agent systems.</p>
+  </section>
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <ul class="timeline">
+      <li><div><div class="entry-heading">Ph.D. in Computer Science · City University of Hong Kong</div><div class="entry-detail">Advisor: Prof. Jianping Wang · Expected completion: Dec 2026</div></div><time class="entry-date">Jul 2021 – Present</time></li>
+      <li><div><div class="entry-heading">M.Sc. in Information Engineering · The Chinese University of Hong Kong</div></div><time class="entry-date">Sep 2018 – Jun 2019</time></li>
+      <li><div><div class="entry-heading">B.Eng. in Communication Engineering · Zhengzhou University</div></div><time class="entry-date">Sep 2014 – Jun 2018</time></li>
+    </ul>
+  </section>
+  <section id="publications">
+<h2 class="section-title">Publications</h2>
+<ol class="publication-list">
+<li class="publication"><div class="publication-title">Evaluating the Reliability of Simulation-Based ADS Testers under Unconsidered Simulator Parameters</div><div class="publication-authors"><strong>Weiwei Fu</strong>, Heqing Huang, Yifan Zhang, Wei-Bin Lee, Jianping Wang</div><div class="publication-venue">IEEE Transactions on Dependable and Secure Computing (TDSC), 2026. <strong class="ccf-tag">CCF-A</strong></div></li>
+<li class="publication"><div class="publication-title"><a href="https://doi.org/10.1109/TDSC.2025.3630192" rel="noopener noreferrer" target="_blank">ICSFuzz: Collision Detector Bug Discovery in Autonomous Driving Simulators</a></div><div class="publication-authors"><strong>Weiwei Fu</strong>, Heqing Huang, Yifan Zhang, Ke Zhang, Jin Huang, Wei-Bin Lee, Jianping Wang</div><div class="publication-venue">IEEE Transactions on Dependable and Secure Computing (TDSC), 2026. <span class="pub-extra"><a href="https://aoooooa.github.io/ICSFuzz_.github.io/" rel="noopener noreferrer" target="_blank">[Project]</a></span> <strong class="ccf-tag">CCF-A</strong></div></li>
+<li class="publication"><div class="publication-title"><a href="https://proceedings.mlr.press/v306/xu26e.html" rel="noopener noreferrer" target="_blank">Expected Returns and Policy Inconsistency-Aware Offline Federated Deep Reinforcement Learning</a></div><div class="publication-authors">Meng Xu, Zhongying Chen, <strong>Weiwei Fu</strong>, Yan Li, Shuguang Wang, Jianping Wang</div><div class="publication-venue">Proceedings of the 43rd International Conference on Machine Learning (ICML), 2026. <strong class="ccf-tag">CCF-A</strong></div></li>
+<li class="publication"><div class="publication-title"><a href="https://scholars.cityu.edu.hk/en/publications/a-two-stage-selective-experience-replay-for-double-actor-deep-rei/" rel="noopener noreferrer" target="_blank">A Two-Stage Selective Experience Replay for Double-Actor Deep Reinforcement Learning</a></div><div class="publication-authors">Meng Xu, Xinhong Chen, Z. Wen, <strong>Weiwei Fu</strong>, Jianping Wang</div><div class="publication-venue">IEEE Transactions on Neural Networks and Learning Systems (TNNLS), 2025. <strong class="ccf-tag">CCF-B</strong></div></li>
+<li class="publication"><div class="publication-title"><a href="https://doi.org/10.1109/TSMC.2025.3537990" rel="noopener noreferrer" target="_blank">A Unified Sparse Training Framework for Lightweight Lifelong Deep Reinforcement Learning</a></div><div class="publication-authors">Meng Xu, Xinhong Chen, <strong>Weiwei Fu</strong>, Yi-Rong Lin, Yung-Hui Li, Jianping Wang</div><div class="publication-venue">IEEE Transactions on Systems, Man, and Cybernetics: Systems, 2025. <strong class="ccf-tag">CCF-B</strong></div></li>
+</ol>
+<h3 class="subhead">Manuscript under revision</h3>
+<ul class="publication-list">
+<li class="publication"><div class="publication-title">SIDER: Uncovering Bugs in 3D Driving Simulators Through Equivalence-Based Testing</div><div class="publication-authors"><strong>Weiwei Fu</strong> et al.</div><div class="publication-venue">Manuscript under major revision.</div></li>
+</ul>
+</section>
+  <section id="teaching">
+    <h2 class="section-title">Teaching Service</h2>
+    <p class="teaching-intro">Teaching Assistant, City University of Hong Kong</p>
+    <ul class="teaching-list">
+       <li><span class="course">GE2340 · AI: Past, Present, &amp; Future</span> <span class="terms">— 2022/23 Semester A; 2023/24 Semester A</span></li>
+       <li><span class="course">CS4293 · Topics in Cybersecurity</span> <span class="terms">— 2022/23 Semester B</span></li>
+       <li><span class="course">CS3103 · Operating Systems</span> <span class="terms">— 2021/22 Semester B</span></li>
+       <li><span class="course">CS2360 · Java Programming</span> <span class="terms">— 2021/22 Semester A</span></li>
+    </ul>
+  </section>
+  <section id="patents">
+<h2 class="section-title">Patents</h2>
+<ol class="patent-list">
+<li>Method, Apparatus, Device, and Storage Medium for Spoofing Attack Detection — ZL202210567504.6.</li>
+<li>Method, Apparatus, Device, and Storage Medium for LiDAR Attack Detection — ZL202210567654.7.</li>
+</ol>
+<p class="muted" style="font-size:13px">Additional patent records may be found on <a href="https://scholars.cityu.edu.hk/en/persons/weiweifu2/" rel="noopener noreferrer" target="_blank">CityUHK Scholars</a>.</p>
+</section>
+  <footer>© 2026 Weiwei Fu · Last updated October 2026</footer>
+ </main>
+</div>
+</body>
+</html>
