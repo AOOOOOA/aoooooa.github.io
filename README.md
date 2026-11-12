@@ -1,5 +1,7 @@
 # Weiwei Fu · Academic Homepage
 
+Official website: https://aoooooa.github.io/
+
 Minimal static HTML academic homepage; no frameworks or build dependencies.
 
 ## Contents
@@ -22,9 +24,9 @@ Publication list is based on verified published records, plus the owner's CV and
 1. Sign in to your GitHub user **AOOOOOA** and create the public repository `AOOOOOA.github.io`.
 2. Upload `index.html`, `assets/profile.jpg` and `.nojekyll` to the repository root.
 3. Under **Settings → Pages**, choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. Visit https://aooooa.github.io/ once GitHub Pages is ready.
+4. Visit https://aoooooa.github.io/ once GitHub Pages is ready.
 
-The site has not been published by ChatGPT.
+The site is deployed to GitHub Pages from the `main` branch.
 
 ## References
 
